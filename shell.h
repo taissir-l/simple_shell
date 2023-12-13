@@ -13,7 +13,7 @@
 #include <signal.h>
 #include <fcntl.h>
 /*********** THE MACROS ************/
-#include "macros.h" 
+#include "macros.h"
 /*********** THE MAINSTRUCTURES ************/
 
 /**
@@ -56,115 +56,115 @@ typedef struct builtins
 
 
 
-void i_data(data_of_programm *data, int arc, char *argv[], char **env);
+void init_data(data_of_programm *data, int arc, char *argv[], char **env);
 
-void prommpt_looper(char *prompt, data_of_programm *data);
+void loop_prpmpt(char *prompt, data_of_programm *data);
 
-void handle_ctrl_c(int opr UNUSED);
+void handle_ctrlc(int opr UNUSED);
 
 
 int _getlin(data_of_programm *data);
 
-int ops_chekers(char *array_comnd[], int i, char array_op[]);
+int check_ops(char *array_comnd[], int i, char array_op[]);
 
 
-void varr_exp(data_of_programm *data);
+void variable_expension(data_of_programm *data);
 
-void alias_exxpen(data_of_programm *data);
+void alias_expension(data_of_programm *data);
 
-int the_buffuer_add(char *buffer, char *str_to_add);
-
-
-
-void tokenising_part(data_of_programm *data);
-
-char *string_separator(char *line, char *delim);
+int buffer_adding(char *buffer, char *str_to_add);
 
 
 
-int the_executer(data_of_programm *data);
+void tokenizeing(data_of_programm *data);
+
+char *_stringtok(char *line, char *delim);
 
 
-int main_builtinss_list(data_of_programm *data);
+
+int executeer(data_of_programm *data);
 
 
-char **tokenizer(data_of_programm *data);
+int builtin_lists(data_of_programm *data);
 
-int prog_finder(data_of_programm *data);
+
+char **tokenizing_path(data_of_programm *data);
+
+int find_programm(data_of_programm *data);
 
 
 /************ THe HELPERS FOR MEMORY MGMNT ************/
 
 
-void free_pointerrs_arrays(char **directories);
+void free_array_pointers(char **directories);
 
 void free_the_data(data_of_programm *data);
 
-void free_all_data(data_of_programm *data);
+void free_all_the_data(data_of_programm *data);
 
 
 /************ BUILTINS ************/
 
-int exit_from_builtinss(data_of_programm *data);
+int builtin_exxit(data_of_programm *data);
 
-int c_dir_buitins(data_of_programm *data);
+int builtinn_cd(data_of_programm *data);
 
-int setting_dir_working(data_of_programm *data, char *new_dir);
+int set_working_directory(data_of_programm *data, char *new_dir);
 
-int helper_builtinn(data_of_programm *data);
+int builtin_helper(data_of_programm *data);
 
-int alias_buitinss(data_of_programm *data);
+int builtinns_alias(data_of_programm *data);
 
 
-int env_of_buitinss(data_of_programm *data);
+int builtins_env(data_of_programm *data);
 
-int sett_built_env(data_of_programm *data);
+int builtins_sett_env(data_of_programm *data);
 
 int builtin_unset_env(data_of_programm *data);
 
 
 /************ THE HELPERS FOR ENVIRONMENT VAR MANAGEMENT ************/
 
-char *envirnmnt_key(char *name, data_of_programm *data);
+char *env_getin_key(char *name, data_of_programm *data);
 
-int envrnmnt_stkey(char *key, char *value, data_of_programm *data);
+int envrmnt_set_key(char *key, char *value, data_of_programm *data);
 
-int envrnmt_removekey(char *key, data_of_programm *data);
+int env_remove_key(char *key, data_of_programm *data);
 
-void envirnmnt_printer(data_of_programm *data);
+void print_envrmt(data_of_programm *data);
 
 
 /************** THE HELPERS FOR PRINTING **************/
 
 int _print(char *string);
 
-int _printer_(char *string);
+int _printe_(char *string);
 
-int _error_print(int errorcode, data_of_programm *data);
+int _print_eror(int errorcode, data_of_programm *data);
 
 
 /************** HELPERS FOR STRINGS MANAGEMENT **************/
 
-int string_length(char *string);
+int str_leng(char *string);
 
-char *double_the_string(char *string);
+char *str_dupl(char *string);
 
-int string_comparer(char *string1, char *string2, int number);
+int string_compare(char *string1, char *string2, int number);
 
-char *string_concater(char *string1, char *string2);
+char *str_concating(char *string1, char *string2);
 
-void reverse_string(char *string);
+void str_rev(char *string);
 
-void numm_string_transformer(long number, char *string, int base);
+void numb_to_string(long number, char *string, int base);
 
-int str_int_transformer(char *s);
+int str_int(char *s);
 
-int char_count(char *string, char *character);
+int counter_char(char *string, char *character);
 
-int alias_control(data_of_programm *data, char *alias);
+int p_alias(data_of_programm *data, char *alias);
 
-char *alias_bringing(data_of_programm *data, char *alias);
+char *bring_alias(data_of_programm *data, char *alias);
 
-int to_set_alias(char *alias_string, data_of_programm *data);
+int seting_alias(char *alias_string, data_of_programm *data);
 
 #endif

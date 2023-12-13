@@ -10,7 +10,7 @@
 void free_the_data(data_of_programm *data)
 {
 	if (data->tokens)
-		free_pointerrs_arrays(data->tokens);
+		free_array_pointers(data->tokens);
 
 	if (data->input_line)
 		free(data->input_line);
@@ -24,14 +24,14 @@ void free_the_data(data_of_programm *data)
 }
 
 /**
- * free_all_data - function that will free all field of the data.
+ * free_all_the_data - function that will free all field of the data.
  *
  * @data: structure of program data.
  *
  * Return: void.
  */
 
-void free_all_data(data_of_programm *data)
+void free_all_the_data(data_of_programm *data)
 {
 	if (data->file_descriptor != 0)
 	{
@@ -40,14 +40,14 @@ void free_all_data(data_of_programm *data)
 	}
 	free_the_data(data);
 
-	free_pointerrs_arrays(data->env);
+	free_array_pointers(data->env);
 
-	free_pointerrs_arrays(data->alias_list);
+	free_array_pointers(data->alias_list);
 }
 
 
 /**
- * free_pointerrs_arrays - functionthat frees pointer of array
+ * free_array_pointers - functionthat frees pointer of array
  *                       corresponding to pointers and arrays.
  *
  * @array: the array of pointers.
@@ -55,7 +55,7 @@ void free_all_data(data_of_programm *data)
  * Return: void.
  */
 
-void free_pointerrs_arrays(char **array)
+void free_array_pointers(char **array)
 {
 	int x;
 

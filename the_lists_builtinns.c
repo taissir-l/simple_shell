@@ -1,33 +1,34 @@
 #include "shell.h"
 
 /**
- * main_builtinss_list - a function to search for match and execute the builtins.
- *
- * @data: program data.
- *
- * Return: the executed func , -1 otherwise.
- */
-int main_builtinss_list(data_of_programm *data)
+* builtin_lists - a function to search for match and execute the builtins.
+*
+* @data: program data.
+*
+* Return: the executed func , -1 otherwise.
+*/
+int builtin_lists(data_of_programm *data)
 {
-        int iterator;
-        builtins options[] = {
-                {"exit", exit_from_builtinss},
-                {"help", helper_builtinn},
-                {"cd", c_dir_buitins},
-                {"alias", alias_buitinss},
-                {"env", env_of_buitinss},
-                {"setenv", sett_built_env},
-                {"unsetenv", builtin_unset_env},
-                {NULL, NULL}
-        };
+int iterator;
+builtins options[] = {
+{"exit", builtin_exxit},
+{"help", builtin_helper},
+{"cd", builtinn_cd},
+{"alias", builtinns_alias},
+{"env", builtins_env},
+{"setenv", builtins_sett_env},
+{"unsetenv", builtin_unset_env},
+{NULL, NULL}
+};
 
-        for (iterator = 0; options[iterator].builtin != NULL; iterator++)
-        {
-                if (string_comparer(options[iterator].builtin, data->command_name, 0))
-                {
-                        return (options[iterator].function(data));
-                }
-        }
-
-        return (-1);
+for (iterator = 0; options[iterator].builtin != NULL; iterator++)
+{
+if (string_compare(options[iterator].builtin, data->command_name, 0))
+{
+return (options[iterator].function(data));
 }
+}
+
+return (-1);
+}
+

@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
- * string_separator - function that separates strings with delimiters.
+ * _stringtok - function that separates strings with delimiters.
  *
  * @line: the pointer to array we receive getline.
  * @delim: the characters we mark off string parts.
@@ -8,7 +8,7 @@
  * Return: created token.
 */
 
-char *string_separator(char *line, char *delim)
+char *_stringtok(char *line, char *delim)
 {
 	int x;
 	static char *str;
